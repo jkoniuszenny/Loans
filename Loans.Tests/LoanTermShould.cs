@@ -25,5 +25,12 @@ namespace Loans.Tests
 
             Assert.That(() => new LoanTerm(0), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
+
+        [Test]
+        public void IsYearsEqualToOneTest()
+        {
+            LoanTerm loanTerm = new LoanTerm(1);
+            Assert.That(loanTerm.Years, Is.EqualTo(1));
+        }
     }
 }
