@@ -16,7 +16,7 @@ namespace Loans.Tests
 
             var result = loanTerm.ToMonths();
 
-            Assert.That(result, Is.EqualTo(12));
+            Assert.That(result, Is.EqualTo(12), "Custom error");
         }
 
         [Test]
@@ -70,6 +70,20 @@ namespace Loans.Tests
 
             Assert.That(a, Is.SameAs(c));
 
+        }
+
+        [TestCase(0.1,0.2,0.3)]
+        public void IsSumCorrectResult(double a, double b, double c)
+        {
+            double result = a + b;
+            Assert.That(result, Is.EqualTo(c).Within(0.00001));
+        }
+
+        [TestCase(1, 3, 0.3333)]
+        public void IsDivCorrectResult(double a, double b, double c)
+        {
+            double result = a / b;
+            Assert.That(result, Is.EqualTo(c).Within(0.0001));
         }
     }
 }
